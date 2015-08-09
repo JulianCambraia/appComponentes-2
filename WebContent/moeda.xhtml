@@ -8,10 +8,16 @@
 	<title>Conversor de Moeda</title>
 </h:head>
 <h:body>
-	<ol>
-		<li>Convertido de: #{conversorMonetarioBean.conversorMonetario.de} Para: #{conversorMonetarioBean.conversorMonetario.para}</li>
-		<li>Moeda convertida :#{conversorMonetarioBean.conversorMonetario.resultado}</li>
-	</ol>
-	<h:link value="Retornar" outcome="conversor"/>
+	<fieldset style="background-color: yellow;">
+		<h:outputFormat value="{0} em {1} equivale a {2} em {3}"
+			rendered="#{conversorMonetarioBean.conversorMonetario.resultado != null}">
+			<f:param value="#{conversorMonetarioBean.conversorMonetario.valor}" />
+			<f:param value="#{conversorMonetarioBean.conversorMonetario.de}" />
+			<f:param value="#{conversorMonetarioBean.conversorMonetario.resultado}" />
+			<f:param value="#{conversorMonetarioBean.conversorMonetario.para}" />
+		</h:outputFormat>
+		<br />
+		<h:link value="Retornar" outcome="conversor" />
+	</fieldset>
 </h:body>
 </html>

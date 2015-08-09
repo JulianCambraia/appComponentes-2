@@ -8,29 +8,35 @@
 	<title>Conversor de Moeda</title>
 </h:head>
 <h:body>
+	<h:graphicImage library="images" name="banner-moedas-estrangeiras.jpg" />
 	<h:form>
 		<h:panelGrid columns="2">
-		
-			<h:outputLabel value="Valor:" for="valor" />
-			<h:inputText value="#{conversorMonetarioBean.conversorMonetario.valor}"	id="valor" />
+			<h:panelGroup>
+				<h:outputLabel value="Valor: " for="valor" />
+				<h:graphicImage library="images" name="hand-coins.png" />
+			</h:panelGroup>
+				<h:inputText value="#{conversorMonetarioBean.conversorMonetario.valor}"	id="valor" />
 
 			<h:outputLabel value="De:" for="de" />
 			<h:selectOneMenu
 				value="#{conversorMonetarioBean.conversorMonetario.de}" id="de">
-				<f:selectItems value="#{conversorMonetarioBean.taxas.keySet()}" var="moeda"
-					itemLabel="#{moeda}" itemValue="#{moeda}" />
+				<f:selectItems value="#{conversorMonetarioBean.taxas.keySet()}"
+					var="moeda" itemLabel="#{moeda}" itemValue="#{moeda}" />
 			</h:selectOneMenu>
-			
+
 			<h:outputLabel value="Para:" for="para" />
 			<h:selectOneMenu
 				value="#{conversorMonetarioBean.conversorMonetario.para}" id="para">
-				<f:selectItems value="#{conversorMonetarioBean.taxas.keySet()}" var="moeda"
-					itemLabel="#{moeda}" itemValue="#{moeda}" />
+				<f:selectItems value="#{conversorMonetarioBean.taxas.keySet()}"
+					var="moeda" itemLabel="#{moeda}" itemValue="#{moeda}" />
 			</h:selectOneMenu>
 
-			<h:commandButton action="#{conversorMonetarioBean.conversorDeMoeda()}" value="Converter" />
-			
-			<h:commandButton action="#{conversorMonetarioBean.reset()}" value="Limpar" />
+			<h:commandButton
+				action="#{conversorMonetarioBean.conversorDeMoeda()}"
+				value="Converter" />
+
+			<h:commandButton action="#{conversorMonetarioBean.reset()}"
+				value="Limpar" />
 		</h:panelGrid>
 	</h:form>
 </h:body>
